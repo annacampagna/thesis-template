@@ -7,16 +7,16 @@
 \usepackage{acronym}
 
 \school{\unibo}
-\programme{Corso di Laurea [Magistrale?] in Ingegneria e Scienze Informatiche}
-\title{Fancy Title}
-\author{Candidate Name}
+\programme{Department of Computer Science and Engineering - DISI\\Master's Degree in Digital Transformation Management}
+\title{Design and Implementation of an Intelligent Call Routing System in the Banking Sector for Improved Customer Experience}
+\author{Anna Campagna}
 \date{\today}
-\subject{Supervisor's course name}
-\supervisor{Prof. Supervisor Here}
+\subject{Machine Learning}
+\supervisor{Prof. Matteo Francia}
 \cosupervisor{Dott. CoSupervisor 1}
 \morecosupervisor{Dott. CoSupervisor 2}
-\session{I}
-\academicyear{2022-2023}
+\session{2nd}
+\academicyear{2025-2026}
 
 % Definition of acronyms
 \acrodef{IoT}{Internet of Thing}
@@ -50,40 +50,114 @@ Optional. Max a few lines.
 \label{chap:introduction}
 %----------------------------------------------------------------------------------------
 
-Write your intro here.
-\sidenote{Add sidenotes in this way. They are named after the author of the thesis}
+Artificial intelligence (AI) refers to the development of computer
+systems that can simulate human learning, problem solving, perception, decision-making, and
+comprehension \cite{franken2019impact}. To be capable of all that, AI systems exploit various techniques,
+including machine learning, deep learning, natural language processing,
+and computer vision, to analyze large amounts of data and make predictions
+or decisions based on that analysis \cite{malik2024artificial}.
 
-You can use acronyms that your defined previously,
-such as \ac{IoT}.
-%
-If you use acronyms twice,
-they will be written in full only once
-(indeed, you can mention the \ac{IoT} now without it being fully explained).
-%
-In some cases, you may need a plural form of the acronym.
-%
-For instance,
-that you are discussing \acp{vm},
-you may need both \ac{vm} and \acp{vm}.
+In recent years, the use of artificial intelligence tools has rapidly escalated in all sectors of the economy, mainly thanks to the growing volume of digital data and higher computational capacity \cite{fernandez2019artificial}.
+Malik et al., in their literature review on the industrial application of AI, report some examples of AI exploitation in different sectors:
+\begin{itemize}
+    \item in all sectors, AI-based intelligence and computer technologies can be exploited to create smart factories, which allow businesses to schedule advanced manufacturing lines and improve supply chain management reducing the risk for human errors;
+    \item in the pharmaceutical sector, AI technologies accelerate research and development efforts in the identification and development of new pharmaceutical compounds to treat various medical conditions;
+    \item in the e-commerce industry, AI enhance the consumer experience and increase sales for businesses by enabling personalized recommendations and targeted marketing strategies;
+    \item in the automotive industry, AI enables autonomous driving, performs predictions on vehicle maintenance needs, and optimizes route computations.
+\end{itemize}
+
+As stated by Fernandez, using artificial intelligence techniques in the provision of financial services can heighten efficiency,
+reduce costs, enhance quality, and raise customer satisfaction levels, as they allow to automate repetitive processes.
+The banking sector in particular has become one of the most active adopters of AI, integrating it across customer-facing channels,
+risk management, and back-office operations; a more detailed overview of these applications is provided in \cref{chap:state-of-the-art}.
+
+In the context of customer support, one widely exploited AI application is the AI-based conversational agent,
+which can simulate human conversations through voice commands \cite{zhang2023impact}.
+For one of their clients in the banking sector, Iriscube Reply S.r.l. had already implemented a conversational agent
+capable of supporting customers for simple concerns such as bank transfers and common information requests.
+However, for more complex issues or requests the customer's call cannot be handled by the conversational agent
+and it needs to be routed to a human operator.
+
+This is exactly the domain in which the project presented in this work is positioned.
+The designed and implemented intelligent call routing system has the objective of predicting the calling customer's
+need based on their call history, their incomplete customer journeys on the home-bank application, their open tickets, and so on,
+so that the call can be immediately routed to the most suited human operator.
+The objective of this system is to increase the calling queue efficiency by assigning to each calling customer a priority score based
+on their criticity and financial value, other than to improve the customer's experience.
+
+In fact, a 2012 study performed by Garcia et al., surveyed over three thousand customers about their waiting time satisfaction,
+information satisfaction, and service satisfaction, finding that actual queue time played a significant but comparatively small role
+in time satisfaction. Their finding was that even with waiting times present, giving customers an informative, satisfactory answer
+along with high-quality service is what keeps them satisfied \cite{garcia2012waiting}.
+Therefore, in order to increase customers' satisfaction, it is fundamental to match the customers' needs with the operators' skills.
+
 
 \paragraph{Structure of the Thesis}
-
-\note{At the end, describe the structure of the paper}
+This thesis will be structured as follows. First, the state of the art about the usage of AI in banking, Automatic Call Distribution systems, and conversational agents will be presented. Then follows a presentation of the analysis of requirements, of the system's design, and of the implementation. Finally, a thorough evaluation of the system will be performed.
 
 \chapter{State of the art}
+\label{chap:state-of-the-art}
 
-I suggest referencing stuff as follows: \cref{fig:random-image} or \Cref{fig:random-image}
 
-\begin{figure}
-    \centering
-    \includegraphics[width=.8\linewidth]{figures/random-image.pdf}
-    \caption{Some random image}
-    \label{fig:random-image}
-\end{figure}
+\section{AI Exploitation in Banking}
 
-\section{Some cool topic}
+Banks are considered as the life blood of an economy as it handles cash, credit and financial transactions. To cut down the operating expenses and to improve the efficiency, the banking sector is adopting updated technologies like AI, cloud and block-chain. Moreover, digitalization is rapidly growing and influencing banks to adopt new technologies for better customer service.
 
-\chapter{Contribution}
+AI is currently exploited in the banking sector for the following applications \cite{kochhar2019rise}, \cite{jain2023role}:
+\begin{itemize}
+    \item \textbf{Data Analytics}: data analytics is of great assistance to the banks, as patterns of customer behavior can be observed by quick processing of data and banks can predict the future outcomes. Hence, banks can contact the customer at the right time with the right product. Data analytics can be used not only for products and services customization, but also for fraud prevention, credit scoring, investment management, and more.
+    \item \textbf{Customer Relationship Management}: chatbots help in understanding the customer and responding in a correct manner. They are automated communication channels, therefore they are available 24/7 and improve the relationship with customers.
+    \item \textbf{Robotic Process Automation (RPA)}: automation of repetitive, rule-based digital tasks, such as data entry, document verification, and compliance checks, which traditionally required manual intervention.
+\end{itemize}
+
+Artificial Intelligence is so important to the banking sector as it helps banks work in a more efficient and effective manner. Jain further notes that AI-driven systems allow banks to process significantly larger volumes of transactions and customer interactions than traditional rule-based systems, while simultaneously reducing the operational cost per interaction \cite{jain2023role}.
+
+On the strictly financial side, the advantages of AI usage for banks are:
+\begin{itemize}
+    \item Cost reduction, as it helps customers in performing their own activities, speed-up response time, handling the data with accuracy, and many more;
+    \item Revenue increase, thanks to increased employee effectiveness, as part of their tasks can be automated by RPA.
+\end{itemize} 
+On a more operational note, AI represents a competitive advantage for banks in:
+\begin{itemize}
+    \item Investment management, as AI algorithms can make informed investment decisions by analyzing vast amounts of market data, historical trends, and news;
+    \item Risk mitigation, as many banks are using AI to protect themselves and their customers from fraud and cyber risks;
+    \item Customer satisfaction, which increases as a consequence of process automation, as customers get the responses they are looking for faster;
+    \item Credit decisions and loan eligibility evaluation, where machine learning models are trained on historical repayment behavior and financial indicators to estimate default risk more accurately and consistently than traditional scorecards, and to shorten loan origination times;
+    \item Fraud detection, as the great amount of data generated by the thousands of transactions that take place daily allow to identify patterns and anomalies in customers' behaviors.
+\end{itemize}
+
+In summary, for a bank to keep its competitive advantage, AI integration is fundamental. While navigating through banking sites, customers tend to ask a set of common questions which can be answered in an effective way with AI applications. Customer service is found to be the most popular use-case for chatbot assistance: by automating responses to frequent, low-complexity requests, banks are able to increase customer engagement while also strengthening their brand image \cite{bhattacharya2022role}. This trend towards automated, always-available customer service channels is precisely what motivates the next section, which examines in more detail how contact centers route the requests that cannot be resolved by such automated channels.
+
+\section{Automatic Call Distribution Systems}
+
+An Automatic Call Distributor (ACD) is part of the telephony-switch infrastructure in a call center \cite{listova2018formation}. It collects operational data, such as each call's arrival time, waiting time in a telephone queue, and duration of service, and it acts as a switch routing the call to an operator, while keeping trace of every call's history as it flows through the contact center.
+
+ACDs are designed to streamline incoming call handling, following the process shown in IMMAGINE: \cite{Nice-ACD}
+\begin{enumerate}
+    \item The ACD identifies the caller's need using tools like Interactive Voice Response (IVR);
+    \item Based on the identified need, the system matches the caller to the best operator;
+    \item If all agents are busy, the caller is placed in a queue and the system monitors wait times and manages call prioritization based on urgency or customer's importance;
+    \item Once an agent becomes available, the system assigns the next call in queue ensuring fair workload and quicker customer service.
+\end{enumerate}
+
+The above-mentioned IVR is the automated telephone system technology that allows the caller to receive, provide information or make requests by giving inputs \cite{IBM-IVR}. Typically, there are 3 types of IVR systems which can be found:
+\begin{itemize}
+    \item Touch-tone replacement: the caller is asked by a pre-recorded message to use a keypad selection to access information. For example, "Press one for account balances", "Press two for recent transactions", "Press three to transfer money", and the user is expected to press the key corresponding to their need.
+    \item Directed dialog: it provides specific verbal prompts to the caller depending on their inquiry. For example, the recording might ask "Do you want to know about account balances or about recent transactions?" and the caller can respond with "Recent transactions".
+    \item Natural language: it uses speech recognition to better understand user requests. For example, the system prompt can generically ask "What information are you looking for today?", and the caller may reply with "I want to know my recent transactions".
+\end{itemize}
+
+\section{Conversational Agents}
+
+
+\section{Intent Classification}
+
+\section{Skill-Based Routing in Contact Centers}
+
+\section{LLM Agents and Agentic Architectures}
+
+
+\chapter{Analysis}
 
 You may also put some code snippet (which is NOT float by default), eg: \cref{lst:random-code}.
 
@@ -91,13 +165,33 @@ You may also put some code snippet (which is NOT float by default), eg: \cref{ls
 
 \section{Fancy formulas here}
 
+\section{High-level goals}
+\section{Constraints}
+\section{Functional and non-functional requirements}
+\section{Requirements analysis}
+\section{Problem analysis}
+\section{Domain model}
+
+\chapter{Design}
+\section{Architecture}
+\section{Detailed design}
+
+\chapter{Implementation}
+
+\chapter{Evaluation}
+\section{Testing}
+\section{Limitations}
+Despite the significant benefits that artificial intelligence offers, it also comes with a series of limitations that must be taken into account when assessing its use. The main risks stem from the potential bias in the results obtained using these tools, and from the difficulties involved in understanding the reasoning process followed by the algorithms to reach a specific conclusion.\cite{fernandez2019artificial}
+
+\section{Experimental evaluation}
+
+\chapter{Conclusion and Future Work}
+
 %----------------------------------------------------------------------------------------
 % BIBLIOGRAPHY
 %----------------------------------------------------------------------------------------
 
 \backmatter
-
-\nocite{*} % Remove this as soon as you have the first citation
 
 \bibliographystyle{alpha}
 \bibliography{bibliography}
