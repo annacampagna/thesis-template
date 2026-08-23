@@ -158,7 +158,10 @@ and outlines future directions.
 
 \section{AI Exploitation in Banking}
 
-Banks are considered as the life blood of an economy as it handles cash, credit and financial transactions. To cut down the operating expenses and to improve the efficiency, the banking sector is adopting updated technologies like AI, cloud and block-chain. Moreover, digitalization is rapidly growing and influencing banks to adopt new technologies for better customer service.
+Banks are considered as the life blood of an economy as it handles cash, credit and financial transactions.
+To cut down the operating expenses and to improve the efficiency, the banking sector is adopting updated technologies
+like AI, cloud and block-chain. Moreover, digitalization is rapidly growing and influencing banks to adopt new
+technologies for better customer service \cite{kochhar2019rise}.
 
 AI is currently exploited in the banking sector for the following applications \cite{kochhar2019rise}, \cite{jain2023role}:
 \begin{itemize}
@@ -169,12 +172,12 @@ AI is currently exploited in the banking sector for the following applications \
 
 Artificial Intelligence is so important to the banking sector as it helps banks work in a more efficient and effective manner. Jain further notes that AI-driven systems allow banks to process significantly larger volumes of transactions and customer interactions than traditional rule-based systems, while simultaneously reducing the operational cost per interaction \cite{jain2023role}.
 
-On the strictly financial side, the advantages of AI usage for banks are:
+On the strictly financial side, the advantages of AI usage for banks are \cite{fernandez2019artificial, kochhar2019rise}:
 \begin{itemize}
     \item Cost reduction, as it helps customers in performing their own activities, speed-up response time, handling the data with accuracy, and many more;
     \item Revenue increase, thanks to increased employee effectiveness, as part of their tasks can be automated by RPA.
 \end{itemize} 
-On a more operational note, AI represents a competitive advantage for banks in:
+On a more operational note, AI represents a competitive advantage for banks in \cite{kochhar2019rise}:
 \begin{itemize}
     \item Investment management, as AI algorithms can make informed investment decisions by analyzing vast amounts of market data, historical trends, and news;
     \item Risk mitigation, as many banks are using AI to protect themselves and their customers from fraud and cyber risks;
@@ -205,7 +208,7 @@ ACDs are designed to streamline incoming call handling, following the process sh
 \end{figure}
 
 The above-mentioned IVR is a recorded interactive script that allows the caller to receive and provide information
-or make requests by pressing the keys of a touch telephone \cite{corkrey2002interactive} or their voice \cite{gans2003telephone}.
+or make requests by pressing the keys of a touch telephone \cite{corkrey2002interactive} or using their voice \cite{gans2003telephone}.
 Typically, 3 types of IVR systems can be found \cite{IBM-IVR}:
 \begin{itemize}
     \item Touch-tone replacement: the caller is asked by a pre-recorded message to use a keypad selection to access information. For example, "Press one for account balances", "Press two for recent transactions", "Press three to transfer money", and the user is expected to press the key corresponding to their need;
@@ -232,7 +235,7 @@ Here, autonomy denotes the system's capacity to act independently of direct huma
 more specifically to goal-directed behavior, encompassing intention, awareness of context, and decision-making.
 
 Agentic AI, by contrast, denotes the wider field and architectural paradigm concerned with building systems that display
-this kind of agency. It brings autonomy and agency together into systems that can initiate their own tasks, reprioritize
+this kind of agency \cite{DBLP:journals/air/AliDC26}. It brings autonomy and agency together into systems that can initiate their own tasks, reprioritize
 goals on the fly, track their own progress, and revise their behavior in response to feedback.
 
 The vocabulary used to describe agency today has roots in the earlier symbolic paradigm, built around explicit logical rules,
@@ -253,14 +256,14 @@ now exhibited by LLMs \cite{DBLP:journals/air/AliDC26}. Within this landscape, m
 can be grouped into three broad categories \cite{DBLP:journals/access/MorallesCRKSSPSR26, DBLP:journals/air/AliDC26, DBLP:journals/apin/Gabauer26}:
 
 \begin{itemize}
-    \item \textbf{Multi-Agent Systems}, in which several agents operate within a shared environment and interact through
-    coordination (synchronizing their actions), cooperation (pursuing common goals), negotiation or competition (resolving conflicting interests).
-    An orchestrator, frequently an LLM itself, plays the role of context manager and task router, evaluating the overall objective and distributing
-    specialized subtasks among the other agents accordingly;
     \item \textbf{Reinforcement Learning Agents}, which learn through trial-and-error interaction with their environment,
     progressively updating their policy to maximize cumulative reward;
     \item \textbf{LLM-based Agents}, which rely on natural language as their primary interface and are capable of tackling
-    complex tasks by combining planning, external tool use, and multi-step reasoning.
+    complex tasks by combining planning, external tool use, and multi-step reasoning;
+    \item \textbf{Multi-Agent Systems}, in which several agents operate within a shared environment and interact through
+    coordination (synchronizing their actions), cooperation (pursuing common goals), negotiation or competition (resolving conflicting interests).
+    An orchestrator, frequently an LLM itself, plays the role of context manager and task router, evaluating the overall objective and distributing
+    specialized subtasks among the other agents accordingly.
 \end{itemize}
 
 A number of frameworks have emerged that attempt to operationalize agentic AI by integrating LLMs with planning and action-execution mechanisms \cite{DBLP:journals/air/AlvaP26};
@@ -293,7 +296,7 @@ Existing dialogue systems are generally divided into task-oriented and non-task-
 \begin{itemize}
     \item Task-oriented dialogue systems enable users to accomplish specific tasks,
     such as ticket booking, restaurant reservation, and customer support, by interacting in natural language.
-    \item Non-task-oriented systems interact with humans to provide reasonable responses and entertainment,
+    \item Non-task-oriented systems interact with humans to provide reasonable responses and entertainment;
     they typically focus on conversing with human on open domains.
 \end{itemize}
 Since the main interest of this work are task-oriented dialogue systems, only these will be explored in more detail.
@@ -318,7 +321,7 @@ The NLU module maps a user utterance onto a set of predefined semantic slots.
 Two complementary sub-tasks are typically involved: intent detection, which classifies the whole utterance
 into one of a predefined set of intents, and slot filling, which extracts word-level information such as named entities,
 and assigns a semantic label to each word or span in the utterance \cite{chen2017survey}.
-For example, in the utterance "show restaurant at New York tomorrow", intent detection would classify the overall request
+For example, in the utterance "show restaurants at New York tomorrow", intent detection would classify the overall request
 as a restaurant search, while slot filling would separately tag "New York" as a location and "tomorrow" as a date.
 While early deployed systems relied primarily on manually crafted rules and features for both sub-tasks, deep learning
 approaches have since been applied successfully to both intent detection and slot filling, learning feature representations
@@ -429,7 +432,7 @@ transformer encoder layer is applied to the attention-refined representation
 before the classification head. This layered combination has been shown to
 outperform both the transformer encoder alone and conventional recurrent
 baselines on a domain-specific, low-resource intent classification benchmark,
-while also supporting post-hoc explainability techniques (such as LIME) that
+while also supporting post-hoc explainability techniques that
 surface the tokens most responsible for a given prediction \cite{shafeeq2026rahbar}.
 This is particularly relevant for customer-facing systems, such as banking contact
 centers, where the ability to justify an automatic routing or classification
